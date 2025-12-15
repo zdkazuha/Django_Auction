@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h1 class="my-4 text-center">Lot detail</h1>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-5">
+
+          <h2 class="fw-bold mb-3 text-center">
+            {{ lot.title }}
+          </h2>
+
+          <p class="text-muted text-center mb-4">
+            {{ lot.description }}
+          </p>
+
+          <hr class="mb-4">
+
+          <div class="row text-center mb-4">
+            <div class="col">
+              <p class="mb-1 text-uppercase text-muted small">
+                Start price
+              </p>
+              <h4 class="fw-semibold">
+                ${{ lot.start_price }}
+              </h4>
+            </div>
+
+            <div class="col">
+              <p class="mb-1 text-uppercase text-muted small">
+                Current price
+              </p>
+              <h4 class="fw-bold text-success">
+                ${{ lot.current_price }}
+              </h4>
+            </div>
+
+            <div class="col">
+              <p class="mb-1 text-uppercase text-muted small">
+                End price
+              </p>
+              <h4 class="fw-bold text-danger">
+                ${{ lot.end_price }}
+              </h4>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
