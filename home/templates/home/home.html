@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<section class="py-5 text-center text-light"
+         style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url('/static/img/auction-bg.jpg') center/cover no-repeat;">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold">Premium Auction House</h1>
+    <p class="lead text-muted mt-3">
+      Bid on exclusive items. Own something unique.
+    </p>
+  </div>
+</section>
+
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row text-center g-4">
+
+      <div class="col-md-4">
+        <div class="p-4">
+          <h4 class="fw-bold">Exclusive Lots</h4>
+          <p class="text-muted">
+            Carefully selected premium items.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="p-4">
+          <h4 class="fw-bold">Live Bidding</h4>
+          <p class="text-muted">
+            Real-time bids and fair competition.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="p-4">
+          <h4 class="fw-bold">Secure Payments</h4>
+          <p class="text-muted">
+            Trusted and transparent transactions.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+    <a href="lots/" style="text-decoration: none;">
+        <h2 class="text-center fw-bold mb-5">Lots</h2>
+    </a>
+</section>
+
+<section class="py-5 bg-dark text-light text-center">
+  <div class="container">
+    <h2 class="fw-bold">Ready to place your bid?</h2>
+    <p class="text-muted mt-2">
+      Join the auction and start bidding today.
+    </p>
+  </div>
+</section>
+
+{% endblock %}
