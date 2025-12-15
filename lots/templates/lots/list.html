@@ -3,7 +3,6 @@
 {% block content %}
 <div class="container my-5">
 
-  <!-- Title -->
   <h1 class="mb-4 text-center fw-bold">Auction Lots</h1>
 
   <div class="card shadow-sm border-0">
@@ -18,7 +17,7 @@
             <th>Start price</th>
             <th>Current price</th>
             <th>End price</th>
-            <th></th>
+            <th>Actions</th>
           </tr>
         </thead>
 
@@ -28,7 +27,7 @@
             <th scope="row">{{ lot.id }}</th>
 
             <td class="fw-semibold">
-              {{ lot.title }}
+              <a href="/lots/{{ lot.id }}" style="text-decoration: none;">{{ lot.title }}</a>
             </td>
 
             <td class="text-muted">
@@ -53,8 +52,8 @@
               </span>
             </td>
 
-            <td class="text-end">
-              
+            <td>
+                  <a href="/lots/delete/{{ lot.id }}" class="btn btn-sm btn-outline-danger " style="text-decoration: none;">Delete</a>
             </td>
           </tr>
 

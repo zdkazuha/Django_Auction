@@ -6,5 +6,6 @@ import lots.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lots.views.lots_list),
-    path('<int:id>/', lots.views.lots_detail),
+    path('<int:pk>/', lots.views.lots_detail),
+    path('delete/<int:pk>/', lots.views.lots_delete),
 ]
