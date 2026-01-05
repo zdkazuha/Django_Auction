@@ -1,11 +1,9 @@
-from django.contrib import admin
 from django.urls import path
-
-import lots.views
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', lots.views.lots_list),
-    path('<int:pk>/', lots.views.lots_detail),
-    path('delete/<int:pk>/', lots.views.lots_delete),
+    path('', views.lots_list, name="lots_list"), 
+    path('create/', views.lots_create, name="lots_create"),  
+    path('delete/<int:pk>/', views.lots_delete, name="lots_delete"),  
+    path('<int:pk>/', views.lots_detail, name="lots_detail"),
 ]

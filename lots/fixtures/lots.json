@@ -1,54 +1,74 @@
 [
     {
-        "model": "lots.Lot",
+        "model": "lots.lot",
         "pk": 1,
         "fields": {
             "title": "Vintage Rolex Watch",
             "description": "Rare vintage Rolex Submariner in excellent condition.",
+            "category": 1,
+            "owner": 1,
+            "buyer": null,
+            "auction": 1,
             "start_price": 5000,
             "current_price": 7500,
             "end_price": 12000
         }
     },
     {
-        "model": "lots.Lot",
+        "model": "lots.lot",
         "pk": 2,
         "fields": {
             "title": "Antique Painting",
             "description": "Oil painting from 19th century, well-preserved.",
+            "category": 2,
+            "owner": 1,
+            "buyer": null,
+            "auction": 1,
             "start_price": 2000,
             "current_price": 3500,
             "end_price": 8000
         }
     },
     {
-        "model": "lots.Lot",
+        "model": "lots.lot",
         "pk": 3,
         "fields": {
             "title": "Luxury Handbag",
             "description": "Chanel Classic Flap Bag, limited edition, black leather.",
+            "category": 1,
+            "owner": 1,
+            "buyer": null,
+            "auction": 1,
             "start_price": 1500,
             "current_price": 2200,
             "end_price": 5000
         }
     },
     {
-        "model": "lots.Lot",
+        "model": "lots.lot",
         "pk": 4,
         "fields": {
             "title": "Rare Wine Collection",
             "description": "Set of 6 bottles of vintage Bordeaux, 1985-1990.",
+            "category": 3,
+            "owner": 1,
+            "buyer": null,
+            "auction": 1,
             "start_price": 1000,
             "current_price": 1800,
             "end_price": 4000
         }
     },
     {
-        "model": "lots.Lot",
+        "model": "lots.lot",
         "pk": 5,
         "fields": {
             "title": "Classic Car Model",
             "description": "1:18 scale diecast model of 1967 Mustang GT.",
+            "category": 3,
+            "owner": 1,
+            "buyer": null,
+            "auction": 1,
             "start_price": 300,
             "current_price": 500,
             "end_price": 1200

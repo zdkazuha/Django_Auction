@@ -1,0 +1,23 @@
+[
+    {
+        "model": "lots.category",
+        "pk": 1,
+        "fields": {
+            "title": "Luxury"
+        }
+    },
+    {
+        "model": "lots.category",
+        "pk": 2,
+        "fields": {
+            "title": "Art"
+        }
+    },
+    {
+        "model": "lots.category",
+        "pk": 3,
+        "fields": {
+            "title": "Collectibles"
+        }
+    }
+]
