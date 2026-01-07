@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from lots.models import Category, Lot, Auction
 from lots.forms import LotForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ def lots_detail(request, pk):
 
 def lots_delete(request, pk):
     lot = get_object_or_404(Lot, pk=pk)
+    messages.success(request, f"Lot {lot.title} deleted successfully.")
     lot.delete()
     return redirect("lots_list")
 
@@ -29,6 +31,7 @@ def lots_create(request):
             lot = form.save(commit=False)   
             lot.current_price = lot.start_price  
             lot.save()  
+            messages.success(request, f"Lot {lot.title} created successfully.")
             return redirect(reverse("lots_detail", args=[lot.pk]))
         else:
             print(form.errors) 
@@ -50,8 +53,8 @@ def lots_update(request, pk):
         form = LotForm(request.POST, request.FILES, instance = lot)
         if form.is_valid():
             lot = form.save(commit=False)   
-            lot.current_price = lot.start_price  
             lot.save()  
+            messages.warning(request, f"Lot {lot.title} updated successfully.")
             return redirect(reverse("lots_detail", args=[lot.pk]))
         else:
             print(form.errors) 
