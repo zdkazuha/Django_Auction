@@ -4,4 +4,4 @@ from .models import Lot
 class LotForm(forms.ModelForm):
     class Meta:
         model = Lot
-        fields = ['title', 'description', 'category', 'auction', 'start_price']
+        fields = ['title', 'image', 'description', 'category', 'auction', 'start_price']

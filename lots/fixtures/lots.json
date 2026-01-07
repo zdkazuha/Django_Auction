@@ -11,7 +11,8 @@
             "auction": 1,
             "start_price": 5000,
             "current_price": 7500,
-            "end_price": 12000
+            "end_price": 12000,
+            "image": null
         }
     },
     {
@@ -26,7 +27,8 @@
             "auction": 1,
             "start_price": 2000,
             "current_price": 3500,
-            "end_price": 8000
+            "end_price": 8000,
+            "image": null
         }
     },
     {
@@ -41,7 +43,8 @@
             "auction": 1,
             "start_price": 1500,
             "current_price": 2200,
-            "end_price": 5000
+            "end_price": 5000,
+            "image": null
         }
     },
     {
@@ -56,7 +59,8 @@
             "auction": 1,
             "start_price": 1000,
             "current_price": 1800,
-            "end_price": 4000
+            "end_price": 4000,
+            "image": null
         }
     },
     {
@@ -71,7 +75,8 @@
             "auction": 1,
             "start_price": 300,
             "current_price": 500,
-            "end_price": 1200
+            "end_price": 1200,
+            "image": null
         }
     }
 ]

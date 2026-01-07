@@ -51,6 +51,11 @@ class Lot(models.Model):
         on_delete=models.CASCADE,
         related_name='lots'
     )
+    image = models.ImageField(
+        upload_to='lot_image/',
+        null=True,
+        blank=True
+    )
     start_price = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(1000)]
     )
