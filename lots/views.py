@@ -4,12 +4,18 @@ from lots.models import Category, Lot, Auction
 from lots.forms import LotForm
 from django.contrib import messages
 
+from favorites.favorites import get_count_of_favorite_lots, get_favorite_lots
+
 # Create your views here.
+
+def lots_index(request):
+    lots = Lot.objects.all()
+
+    return render(request, "lots/index.html", { 'lots' : lots, 'favorite_lots': get_favorite_lots(request), 'favorite_count': get_count_of_favorite_lots(request) })
 
 def lots_list(request):
     lots = Lot.objects.all()
     return render(request, "lots/list.html", {'lots' : lots})
-
 
 def lots_detail(request, pk):
     lot = get_object_or_404(Lot, pk=pk)

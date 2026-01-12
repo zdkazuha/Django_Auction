@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lots',
     'home',
+    'favorites',
 ]
 
 MIDDLEWARE = [
