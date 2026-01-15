@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'lots',
     'home',
     'favorites',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,39 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_LOCATION = "static"
 MEDIA_LOCATION = "media"
+
+# ---- Azure Blob Storage
+
+AZURE_CONTAINER_STATIC = "static"
+AZURE_CONTAINER_MEDIA = "media"
+
+AZURE_ACCOUNT_NAME = "djangomedia"
+AZURE_CUSTOM_DOMAIN = f"{AZURE_ACCOUNT_NAME}.blob.core.windows.net"
+STATIC_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER_STATIC}/"
+MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER_MEDIA}/"
+
+# ----
+
+AZURE_ACCOUNT_KEY = "my_key"
+AZURE_CONNECTION_STRING = "my_connection_string"
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "azure_container": AZURE_CONTAINER_MEDIA,
+            "account_name": AZURE_ACCOUNT_NAME,
+            "account_key": AZURE_ACCOUNT_KEY,
+            "connection_string": AZURE_CONNECTION_STRING,
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "azure_container": AZURE_CONTAINER_STATIC,
+            "account_name": AZURE_ACCOUNT_NAME,
+            "account_key": AZURE_ACCOUNT_KEY,
+            "connection_string": AZURE_CONNECTION_STRING
+        },
+    },
+}

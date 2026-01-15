@@ -11,6 +11,9 @@ from favorites.favorites import get_favorite_lots
 def lots_index(request):
     lots = Lot.objects.all()
 
+    lot = Lot.objects.first()
+    print(lot.image.name)
+
     return render(request, "lots/index.html", { 'lots' : lots, 'favorite_lots': get_favorite_lots(request)})
 
 def lots_list(request):
