@@ -76,7 +76,7 @@ def lots_update(request, pk):
         'auctions': auctions
     })
 
-def place_bid(request, pk):
+def lots_place_bid(request, pk):
     MIN_STEP = 10
 
     lot = get_object_or_404(Lot, pk=pk)
@@ -100,3 +100,11 @@ def place_bid(request, pk):
     return render(request, "lots/components/lot_form_price.html", {
         'lot': lot
     })
+
+def lots_search(request):
+    lots = Lot.objects.all()
+
+    query = request.GET.get('search_text')
+    if query:
+        lots = lots.filter(title__icontains = query)
+    return render(request, "lots/index.html", {'lots': lots, 'favorite_lots': get_favorite_lots(request)})

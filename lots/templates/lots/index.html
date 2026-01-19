@@ -2,6 +2,25 @@
 
 <h1 class="my-4 text-center">Lots</h1>
 
+<form method="get" action="{% url 'lots_search' %}" class="mb-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="input-group shadow-sm">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          name="search_text"
+          placeholder="🔍 Search lot by name..."
+          value="{{ request.GET.search_text }}"
+        >
+        <button type="submit" class="btn btn-primary px-4">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
 <div class="container">
   <div class="row g-4">
     {% for lot in lots %}
