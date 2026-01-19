@@ -1,8 +1,11 @@
 {% extends 'layout.html' %} {% block content %}
 
-<h1 class="my-4 text-center">Favorites</h1>
+<div class="text-center my-5">
+  <h1 class="fw-bold">Your Favorites</h1>
+  <p class="text-secondary">Lots you saved for later bidding</p>
+</div>
 
-<div class="container">
+<div class="container" style="min-height: 100vh;">
   <div class="row g-4">
     {% for lot in lots %}
     <div class="col-12 col-md-6 col-lg-4">

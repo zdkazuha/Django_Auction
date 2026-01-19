@@ -140,7 +140,7 @@ MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER_MEDIA}/"
 
 # ----
 
-AZURE_ACCOUNT_KEY = "my_key"
+AZURE_ACCOUNT_KEY = "my_account_key"
 AZURE_CONNECTION_STRING = "my_connection_string"
 
 STORAGES = {

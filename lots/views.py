@@ -75,3 +75,28 @@ def lots_update(request, pk):
         'categories': categories,
         'auctions': auctions
     })
+
+def place_bid(request, pk):
+    MIN_STEP = 10
+
+    lot = get_object_or_404(Lot, pk=pk)
+
+    if request.method == "POST":
+        bid_price = int(request.POST.get("bid_price"))
+
+        if bid_price <= lot.current_price + MIN_STEP:
+            return render(request, "lots/components/lot_form_price.html", {
+                'lot': lot,
+                'error': "Bid must be higher than the current price."
+            })
+
+        lot.current_price = bid_price
+        lot.save()
+
+        messages.success(request, f"Successfully placed bid on {lot.title}.")
+
+        return redirect("lots_detail", pk=lot.pk)
+
+    return render(request, "lots/components/lot_form_price.html", {
+        'lot': lot
+    })

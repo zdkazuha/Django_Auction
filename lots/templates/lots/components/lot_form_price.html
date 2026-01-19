@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container my-5" style="height: 610px;">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 col-lg-6">
+
+      <div class="card shadow-lg border-0 rounded-4 overflow-hidden"
+           style="
+             background: rgba(255,255,255,.05);
+             backdrop-filter: blur(8px);
+             box-shadow: 0 20px 40px rgba(0,0,0,.35);
+           ">
+
+        <div class="card-body p-5">
+
+          <h2 class="fw-bold text-center mb-4 text-light">
+            Place your bid
+          </h2>
+
+          <p class="text-center text-secondary mb-4" style="font-size: 1.1rem;">
+            Current price:
+            <span class="fw-bold text-success">
+              ${{ lot.current_price }}
+            </span>
+          </p>
+
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-4">
+              <label class="form-label text-light">
+                Your bid
+              </label>
+              <input
+                type="number"
+                name="bid_price"
+                class="form-control form-control-lg bg-dark text-light border-0"
+                style="background: rgba(255,255,255,.08);"
+                min="{{ lot.current_price|add:1 }}"
+                placeholder="Enter your bid"
+                required
+              >
+            </div>
+
+            {% if error %}
+              <div class="alert alert-danger text-center">
+                {{ error }}
+              </div>
+            {% endif %}
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+              <button class="btn btn-outline-success btn-lg px-5">
+                Confirm bid
+              </button>
+
+              <a href="{% url 'lots_detail' lot.id %}"
+                 class="btn btn-outline-secondary btn-lg px-5">
+                Cancel
+              </a>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

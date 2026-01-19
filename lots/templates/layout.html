@@ -10,6 +10,29 @@
       crossorigin="anonymous"
     />
     <title>Lots</title>
+    <style>
+      body {
+        background-color: #0b0d12;
+        color: #eaeaea;
+      }
+
+      .navbar {
+        background: rgba(20, 22, 30, 0.7) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .navbar-brand,
+      .navbar .nav-link {
+        color: #f1f1f1 !important;
+      }
+
+      .navbar .nav-link:hover {
+        color: #c9b37e !important;
+      }
+  </style>
+
   </head>
 
   <body>
@@ -44,6 +67,15 @@
     </nav>
 
     <div class="container">{% block content %} {% endblock %}</div>
+
+    <footer class="mt-5 py-4 text-center"
+            style="background: rgba(20,22,30,.6); border-top:1px solid rgba(255,255,255,.08);">
+      <div class="container">
+        <small class="text-secondary">
+          © 2026 BestAuction. All rights reserved.
+        </small>
+      </div>
+    </footer>
 
     {% include 'lots/components/toast.html' %}
 

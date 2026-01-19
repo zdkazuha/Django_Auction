@@ -2,44 +2,67 @@
 
 {% block content %}
 
-<section class="py-5 text-center text-light"
-         style="background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
-                url('/static/img/auction-bg.jpg') center/cover no-repeat;">
-  <div class="container py-5">
-    <h1 class="display-4 fw-bold">Premium Auction House</h1>
-    <p class="lead text-muted mt-3">
-      Bid on exclusive items. Own something unique.
-    </p>
+<section class="text-light"
+  style="
+    height: 550px;
+    width: 1510px;
+    margin-left: -108px;
+    background:
+      linear-gradient(rgba(10,10,15,.8), rgba(10,10,15,.75)),
+      url('https://static.ukrinform.com/photos/2020_05/thumb_files/630_360_1589901550-438.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+  ">
+  <div class="w-100 px-4">
+    <div class="mx-auto text-center" style="max-width:1200px;">
+      <h1 class="display-3 fw-bold mb-4">
+        Premium Auction House
+      </h1>
+      <p class="lead text-secondary mb-5">
+        Exclusive lots. Real competition. True value.
+      </p>
+      <a href="lots/" class="btn btn-outline-light btn-lg px-5">
+        Explore Lots
+      </a>
+    </div>
   </div>
 </section>
 
-<section class="py-5 bg-light">
-  <div class="container">
-    <div class="row text-center g-4">
+<section class="py-5" 
+  style="background:#0d0f14;
+         min-height: 150px;
+         width: 1510px;
+         margin-left: -108px;
+  ">
+  <div class="w-100 px-4">
+    <div class="row g-4 mx-auto text-center" style="max-width:1400px;">
 
       <div class="col-md-4">
-        <div class="p-4">
-          <h4 class="fw-bold">Exclusive Lots</h4>
-          <p class="text-muted">
-            Carefully selected premium items.
+        <div class="p-4 rounded-4 h-100"
+             style="background:rgba(255,255,255,.06); backdrop-filter: blur(8px);">
+          <h4 class="fw-bold text-light">Exclusive Lots</h4>
+          <p class="text-secondary mt-2">
+            Hand-picked premium items with real value.
           </p>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="p-4">
-          <h4 class="fw-bold">Live Bidding</h4>
-          <p class="text-muted">
-            Real-time bids and fair competition.
+        <div class="p-4 rounded-4 h-100"
+             style="background:rgba(255,255,255,.06); backdrop-filter: blur(8px);">
+          <h4 class="fw-bold text-light">Live Bidding</h4>
+          <p class="text-secondary mt-2">
+            Real-time bids with transparent rules.
           </p>
         </div>
       </div>
 
       <div class="col-md-4">
-        <div class="p-4">
-          <h4 class="fw-bold">Secure Payments</h4>
-          <p class="text-muted">
-            Trusted and transparent transactions.
+        <div class="p-4 rounded-4 h-100"
+             style="background:rgba(255,255,255,.06); backdrop-filter: blur(8px);">
+          <h4 class="fw-bold text-light">Secure Payments</h4>
+          <p class="text-secondary mt-2">
+            Trusted transactions and buyer protection.
           </p>
         </div>
       </div>
@@ -48,18 +71,20 @@
   </div>
 </section>
 
-<section class="py-5">
-    <a href="lots/" style="text-decoration: none;">
-        <h2 class="text-center fw-bold mb-5">Lots</h2>
-    </a>
-</section>
-
-<section class="py-5 bg-dark text-light text-center">
-  <div class="container">
-    <h2 class="fw-bold">Ready to place your bid?</h2>
-    <p class="text-muted mt-2">
-      Join the auction and start bidding today.
-    </p>
+<section class="py-5"
+         style="background:linear-gradient(180deg,#0d0f14,#12151c);
+                height: 200px;
+                width: 1510px;
+                margin-left: -108px;
+                margin-bottom: -48px;
+         ">
+  <div class="w-100 px-4 text-center">
+    <div class="mx-auto" style="max-width:1200px;">
+      <h2 class="fw-bold mb-4 text-light">Active Lots</h2>
+      <a href="lots/" class="btn btn-outline-secondary btn-lg px-5">
+        View All Lots
+      </a>
+    </div>
   </div>
 </section>
 
