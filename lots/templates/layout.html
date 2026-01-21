@@ -55,6 +55,12 @@
             <li class="nav-item">
               <a class="nav-link" href="/favorites">Favorites ({{ favorite_count }})</a>
             </li>
+            <li>
+              <a class="nav-link" href="{% url 'auctions_list' %}">Auctions List</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'auctions_index' %}">Auctions</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'lots_list' %}">Lots list</a>
             </li>

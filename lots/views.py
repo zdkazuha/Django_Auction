@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from lots.models import Category, Lot, Auction
-from lots.forms import LotForm
+from lots.forms import AuctionForm, LotForm
 from django.contrib import messages
 
 from favorites.favorites import get_favorite_lots
@@ -10,11 +10,13 @@ from favorites.favorites import get_favorite_lots
 
 def lots_index(request):
     lots = Lot.objects.all()
+    auctions = Auction.objects.all()
+    categories = Category.objects.all()
 
     lot = Lot.objects.first()
     print(lot.image.name)
 
-    return render(request, "lots/index.html", { 'lots' : lots, 'favorite_lots': get_favorite_lots(request)})
+    return render(request, "lots/index.html", { 'lots' : lots, 'auctions': auctions, 'categories': categories, 'favorite_lots': get_favorite_lots(request)})
 
 def lots_list(request):
     lots = Lot.objects.all()
@@ -103,8 +105,18 @@ def lots_place_bid(request, pk):
 
 def lots_search(request):
     lots = Lot.objects.all()
+    auctions = Auction.objects.all()
+    categories = Category.objects.all()
 
-    query = request.GET.get('search_text')
-    if query:
-        lots = lots.filter(title__icontains = query)
-    return render(request, "lots/index.html", {'lots': lots, 'favorite_lots': get_favorite_lots(request)})
+    search_text = request.GET.get('search_text')
+    category = request.GET.get('category')
+    auction = request.GET.get('auction')
+
+    if auction:
+        lots = lots.filter(auction_id=auction)
+    if category:
+        lots = lots.filter(category_id=category)
+    if search_text:
+        lots = lots.filter(title__icontains=search_text)
+
+    return render(request, "lots/index.html", {'lots': lots, 'auctions': auctions, 'categories': categories, 'favorite_lots': get_favorite_lots(request)})

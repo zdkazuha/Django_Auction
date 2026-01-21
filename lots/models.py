@@ -3,6 +3,10 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 
 class Auction(models.Model):
+    title = models.CharField(
+        max_length=100,
+        validators=[MinLengthValidator(3)]
+    )    
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 

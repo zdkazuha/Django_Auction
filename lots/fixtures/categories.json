@@ -2,22 +2,51 @@
     {
         "model": "lots.category",
         "pk": 1,
-        "fields": {
-            "title": "Luxury"
-        }
+        "fields": { "title": "Luxury" }
     },
     {
         "model": "lots.category",
         "pk": 2,
-        "fields": {
-            "title": "Art"
-        }
+        "fields": { "title": "Art" }
     },
     {
         "model": "lots.category",
         "pk": 3,
-        "fields": {
-            "title": "Collectibles"
-        }
+        "fields": { "title": "Collectibles" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 4,
+        "fields": { "title": "Electronics" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 5,
+        "fields": { "title": "Fashion" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 6,
+        "fields": { "title": "Books" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 7,
+        "fields": { "title": "Toys" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 8,
+        "fields": { "title": "Furniture" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 9,
+        "fields": { "title": "Music" }
+    },
+    {
+        "model": "lots.category",
+        "pk": 10,
+        "fields": { "title": "Sports" }
     }
 ]

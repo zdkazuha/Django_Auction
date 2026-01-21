@@ -1,0 +1,77 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container my-5" style="min-height: 100vh;">
+
+  <div class="text-center mb-4">
+    <h1 class="fw-bold">Auctions</h1>
+  </div>
+
+  <div class="d-flex justify-content-end mb-3">
+    <a class="btn btn-outline-light" href="/auctions/create/">
+      + Create New Auction
+    </a>
+  </div>
+
+  <div class="card border-0 rounded-4 overflow-hidden"
+       style="background: rgba(255,255,255,.05); backdrop-filter: blur(8px); box-shadow: 0 20px 40px rgba(0,0,0,.35);">
+
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0 text-light">
+          <thead style="background: rgba(0,0,0,.45);">
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody class="table-group-divider">
+            {% for auction in auctions %}
+            <tr>
+              <th class="text-secondary">{{ auction.id }}</th>
+              <td class="fw-semibold">
+                <a href="/auctions/{{ auction.id }}/" class="text-decoration-none text-light">
+                  {{ auction.title }}
+                </a>
+              </td>
+              <td>
+                <span class="badge bg-success">
+                  {{ auction.start_time|date:"Y-m-d H:i" }}
+                </span>
+              </td>
+              <td>
+                <span class="badge bg-danger">
+                  {{ auction.end_time|date:"Y-m-d H:i" }}
+                </span>
+              </td>
+              <td class="text-center">
+                <div class="d-flex justify-content-center gap-2">
+                  <a href="/auctions/edit/{{ auction.id }}/" class="btn btn-sm btn-outline-light">
+                    Edit
+                  </a>
+                  <a href="/auctions/delete/{{ auction.id }}/" class="btn btn-sm btn-outline-danger">
+                    Delete
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+            {% empty %}
+            <tr>
+              <td colspan="5" class="text-center text-secondary py-4">
+                No auctions available
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
