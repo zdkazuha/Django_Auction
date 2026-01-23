@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import redirect, render
 FAVORITES_LOTS_KEY = 'favorite_lots'
 
@@ -14,9 +15,13 @@ def index(request):
 
 def add_lot_to_favorites(request, lot_id, return_url):
     add_to_favorites(request, lot_id)
+    messages.success(request, f"Lot added to favorites successfully.")
+
     return redirect(return_url)
 
 def remove_lot_from_favorites(request, lot_id, return_url):
     remove_from_favorites(request, lot_id)
+    messages.success(request, f"Lot removed from favorites successfully.")
+
     return redirect(return_url)
     

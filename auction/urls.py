@@ -7,10 +7,12 @@ import lots.views
 
 urlpatterns = [
     path('', include('home.urls')),
-    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
     path('lots/', include('lots.urls')),
+    path('admin/', admin.site.urls),
     path('auctions/', include('auctions.urls')),
     path('favorites/', include('favorites.urls')),
+
 ]
 
 if settings.DEBUG:

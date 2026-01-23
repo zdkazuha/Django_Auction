@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'favorites',
     'auctions',
     'storages',
     'lots',
     'home',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -141,8 +143,8 @@ MEDIA_URL = f"https://{AZURE_CUSTOM_DOMAIN}/{AZURE_CONTAINER_MEDIA}/"
 
 # ----
 
-AZURE_ACCOUNT_KEY = "my_account_key"
-AZURE_CONNECTION_STRING = "my_connection_string"
+AZURE_ACCOUNT_KEY = os.getenv("AZURE_ACCOUNT_KEY")
+AZURE_CONNECTION_STRING = os.getenv("AZURE_CONNECTION_STRING")
 
 STORAGES = {
     "default": {

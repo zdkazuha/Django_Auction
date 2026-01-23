@@ -14,7 +14,6 @@ def lots_index(request):
     categories = Category.objects.all()
 
     lot = Lot.objects.first()
-    print(lot.image.name)
 
     return render(request, "lots/index.html", { 'lots' : lots, 'auctions': auctions, 'categories': categories, 'favorite_lots': get_favorite_lots(request)})
 

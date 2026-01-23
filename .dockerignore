@@ -40,9 +40,9 @@ env/
 # Django
 *.log
 local_settings.py
-# /media/
-# /staticfiles/
-# db.sqlite3
+/media/
+/staticfiles/
+db.sqlite3
 
 # Testing
 .tox/

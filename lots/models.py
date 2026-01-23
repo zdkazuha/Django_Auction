@@ -61,7 +61,7 @@ class Lot(models.Model):
         blank=True
     )
     start_price = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(1000)]
+        validators=[MinValueValidator(1)]
     )
     current_price = models.IntegerField(
         validators=[MinValueValidator(1)]
