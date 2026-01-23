@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
+from django.utils import timezone
 
 class Auction(models.Model):
     title = models.CharField(
@@ -13,7 +14,6 @@ class Auction(models.Model):
     def __str__(self):
         return f'{self.start_time} : {self.end_time}'
 
-
 class Category(models.Model):
     title = models.CharField(
         max_length=100,
@@ -22,7 +22,6 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
-
 
 class Lot(models.Model):
     title = models.CharField(
@@ -73,3 +72,18 @@ class Lot(models.Model):
 
     def __str__(self):
         return f'{self.title} : {self.description}'
+    
+class Bid(models.Model):
+    lot = models.ForeignKey(
+        Lot,
+        on_delete=models.CASCADE,
+        related_name='bids'
+    )
+    username = models.TextField(default='unknown')
+    amount = models.IntegerField(
+        validators=[MinValueValidator(10)]
+    )
+    timestamp = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.username} → {self.amount} on {self.lot}'

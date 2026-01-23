@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from lots.models import Category, Lot, Auction
+from lots.models import Bid, Category, Lot, Auction
 from lots.forms import AuctionForm, LotForm
 from django.contrib import messages
 
@@ -23,7 +23,9 @@ def lots_list(request):
 
 def lots_detail(request, pk):
     lot = get_object_or_404(Lot, pk=pk)
-    return render(request, "lots/detail.html", {'lot' : lot})
+    bids = lot.bids.all()
+
+    return render(request, "lots/detail.html", {'lot' : lot, 'bids': bids})
 
 def lots_delete(request, pk):
     lot = get_object_or_404(Lot, pk=pk)
@@ -90,7 +92,12 @@ def lots_place_bid(request, pk):
                 'lot': lot,
                 'error': "Bid must be higher than the current price."
             })
-
+        
+        bid = Bid.objects.create(
+            lot=lot,
+            amount=bid_price
+        )
+        bid.save()
         lot.current_price = bid_price
         lot.save()
 
