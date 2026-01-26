@@ -74,7 +74,7 @@
               {% if bids %}
                 {% for bid in bids|dictsortreversed:"timestamp" %}
                   <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
-                    <strong style="width: 100px;">{{ bid.username }}</strong>
+                    <strong style="width: 100px;">{{ bid.user.username }}</strong>
                     <span style="font-weight: 500; color: #f5f5f5;">${{ bid.amount }}</span>
                     <span style="font-size: 12px; color: #aaa;">{{ bid.timestamp|date:"Y-m-d H:i" }}</span>
                   </div>

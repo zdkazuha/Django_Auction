@@ -22,6 +22,14 @@
           </div>
 
           <div class="mb-3">
+            <label class="form-label fw-semibold">Image</label>
+            <input type="file" name="image" class="form-control bg-dark text-light border-1 border-secondary">
+            {% if form.image.errors %}
+              <div class="text-danger small">{{ form.image.errors|striptags }}</div>
+            {% endif %}
+          </div>
+
+          <div class="mb-3">
             <label class="form-label fw-semibold">Start Time</label>
             <input type="datetime-local" name="start_time"
                   class="form-control bg-dark text-light border-1 border-secondary"

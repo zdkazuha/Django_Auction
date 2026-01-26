@@ -5,6 +5,7 @@ from lots.forms import LotForm
 from django.contrib import messages
 
 from favorites.favorites import get_favorite_lots
+import user
 
 # Create your views here.
 
@@ -12,8 +13,6 @@ def lots_index(request):
     lots = Lot.objects.all()
     auctions = Auction.objects.all()
     categories = Category.objects.all()
-
-    lot = Lot.objects.first()
 
     return render(request, "lots/index.html", { 'lots' : lots, 'auctions': auctions, 'categories': categories, 'favorite_lots': get_favorite_lots(request)})
 
@@ -80,6 +79,10 @@ def lots_update(request, pk):
     })
 
 def lots_place_bid(request, pk):
+
+    if not request.user.is_authenticated:
+        return redirect("user_login")
+
     MIN_STEP = 10
 
     lot = get_object_or_404(Lot, pk=pk)
@@ -94,6 +97,7 @@ def lots_place_bid(request, pk):
             })
         
         bid = Bid.objects.create(
+            user=request.user,
             lot=lot,
             amount=bid_price
         )

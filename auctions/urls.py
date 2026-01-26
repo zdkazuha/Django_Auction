@@ -10,6 +10,3 @@ urlpatterns = [
     path('edit/<int:pk>/', views.auctions_update, name="auctions_update"),
     path('delete/<int:pk>/', views.auctions_delete, name="auctions_delete"),
 ]
-
-
-

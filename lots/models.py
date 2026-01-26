@@ -8,6 +8,11 @@ class Auction(models.Model):
         max_length=100,
         validators=[MinLengthValidator(3)]
     )    
+    image = models.ImageField(
+        upload_to='auction_image/',
+        null=True,
+        blank=True
+    )
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 

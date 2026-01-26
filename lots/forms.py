@@ -9,4 +9,4 @@ class LotForm(forms.ModelForm):
 class AuctionForm(forms.ModelForm):
     class Meta:
         model = Auction
-        fields = ['title', 'start_time', 'end_time']
+        fields = ['title', 'image', 'start_time', 'end_time']

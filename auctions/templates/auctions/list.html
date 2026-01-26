@@ -23,6 +23,7 @@
             <tr>
               <th>#</th>
               <th>Title</th>
+              <th>Image</th>
               <th>Start Time</th>
               <th>End Time</th>
               <th class="text-center">Actions</th>
@@ -38,6 +39,20 @@
                   {{ auction.title }}
                 </a>
               </td>
+                          <td>
+              {% if auction.image %}
+                <img src="{{ auction.image.url }}"
+                     alt="{{ auction.title }}"
+                     class="rounded-2"
+                     style="height: 60px; object-fit: cover;">
+              {% else %}
+                <img src="https://media.istockphoto.com/id/1162198273/uk/%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%96-%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%BD%D1%8F/%D0%B7%D0%BD%D0%B0%D0%BA-%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B7%D0%BD%D0%B0%D1%87%D0%BE%D0%BA-%D0%BF%D0%BB%D0%BE%D1%81%D0%BA%D0%B8%D0%B9-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D0%B8%D0%B9-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D1%96%D0%BB%D1%8E%D1%81%D1%82%D1%80%D0%B0%D1%86%D1%96%D1%97.jpg?s=612x612&w=0&k=20&c=3qMBcw_4d8TgycafT43xIxu33SHlINHWDI_pKqRN5qs="
+                     alt="{{ auction.title }}"
+                     class="rounded-2"
+                     style="height: 60px;">
+              {% endif %}
+            </td>
+
               <td>
                 <span class="badge bg-success">
                   {{ auction.start_time|date:"Y-m-d H:i" }}

@@ -1,9 +1,10 @@
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 
-from lots.forms import AuctionForm
+from favorites.favorites import get_favorite_lots
 from lots.models import Auction, Lot
+from lots.forms import AuctionForm
 
 # Create your views here.
 
@@ -21,11 +22,11 @@ def auctions_detail(request, pk):
     auction = get_object_or_404(Auction, pk=pk)
     lots = Lot.objects.filter(auction=auction)
 
-    return render(request, "auctions/detail.html", {'auction': auction, 'lots': lots})
+    return render(request, "auctions/detail.html", {'favorite_lots': get_favorite_lots(request), 'auction': auction, 'lots': lots})
 
 def auctions_create(request):
     if request.method == "POST":
-        form = AuctionForm(request.POST)
+        form = AuctionForm(request.POST, request.FILES)
         if form.is_valid():
             auction = form.save(commit=False)
             if auction.start_time < auction.end_time:
@@ -45,7 +46,7 @@ def auctions_update(request, pk):
     auction = get_object_or_404(Auction, pk=pk)
 
     if request.method == "POST":
-        form = AuctionForm(request.POST, instance=auction)
+        form = AuctionForm(request.POST, request.FILES, instance=auction)
         if form.is_valid():
             auction = form.save(commit=False)
             if auction.start_time < auction.end_time:
