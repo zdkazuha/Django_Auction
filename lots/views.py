@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from lots.models import Bid, Category, Lot, Auction
-from lots.forms import AuctionForm, LotForm
+from lots.forms import LotForm
 from django.contrib import messages
 
 from favorites.favorites import get_favorite_lots

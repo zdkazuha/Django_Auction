@@ -8,6 +8,7 @@ import lots.views
 urlpatterns = [
     path('', include('home.urls')),
     path('api/', include('api.urls')),
+    path('user/', include('user.urls')),
     path('lots/', include('lots.urls')),
     path('admin/', admin.site.urls),
     path('auctions/', include('auctions.urls')),

@@ -79,11 +79,14 @@ class Bid(models.Model):
         on_delete=models.CASCADE,
         related_name='bids'
     )
-    username = models.TextField(default='unknown')
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+    )
     amount = models.IntegerField(
         validators=[MinValueValidator(10)]
     )
     timestamp = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return f'{self.username} → {self.amount} on {self.lot}'
+        return f'{self.user.username} → {self.amount} on {self.lot}'

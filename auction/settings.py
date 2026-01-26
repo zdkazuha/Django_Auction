@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'auctions',
     'storages',
     'lots',
+    'user',
     'home',
     'api',
 ]
